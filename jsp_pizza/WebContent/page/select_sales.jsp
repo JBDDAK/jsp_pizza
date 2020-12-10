@@ -36,7 +36,7 @@
 				out.print("<tr>");
 				out.print("<td>"+ rs.getString(1) + "</td>");
 				out.print("<td>"+ rs.getString(2) + "</td>");
-				out.print("<td>"+ rs.getString(3) + "</td>");
+				out.print("<td>"+ rs.getString(3).substring(0, 10) + "</td>");
 				out.print("<td>"+ rs.getString(4) + "</td>");
 				out.print("<td>"+ rs.getString(5) + "</td>");
 				out.print("<td>"+ rs.getInt(6) + "</td>");

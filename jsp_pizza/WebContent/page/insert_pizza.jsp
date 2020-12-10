@@ -12,20 +12,26 @@
 	var valueCk = true
 	function chake(inputBox, errorMsg) {
 		if ((inputBox.value === "" || inputBox.value <= 0) && valueCk == true) {
-			if(!inputBox === document.input_form.gender){
-				inputBox.focus();
-			}
+			inputBox.focus();
 			alert(errorMsg);
 			valueCk = fasle;
 			return;
 		} else {
 			return;
 		}
-		valueCk = true;
 	}
 	function submit_form() {
+		chake(document.input_form.saleno,"매출전표번호를 입력해주세요")
+		chake(document.input_form.scode,"지점코드를 입력해주세요")
+		chake(document.input_form.date,"판매일자를 입력해주세요")
+		chake(document.input_form.pcode,"피자코드를 선택해주세요")
+		chake(document.input_form.amount,"판매수량를 입력해주세요")
+
+		if (valueCk) {
 			alert("정상적으로 처리되었습니다.")
 			document.input_form.submit();
+		}
+
 	}
 
 	function reset_form() {
@@ -50,13 +56,14 @@
 			<td>피자코드</td>
 			<td>
 				<select name="pcode">
+					<option value="">피자선택</option>
 					<%
 					Statement stmt = conn.createStatement();
 					String query = "select pizza.pcode, pizza.pname from tbl_pizza_01 PIZZA";
 					ResultSet rs = stmt.executeQuery(query);
 					while(rs.next()){
 					%>
-						<option value="<%=rs.getString(1) %>"> [<%=rs.getString(1) %>] <%=rs.getString(2) %></option>
+					<option value="<%=rs.getString(1) %>"> [<%=rs.getString(1) %>] <%=rs.getString(2) %></option>
 					<%
 					}
 					%>

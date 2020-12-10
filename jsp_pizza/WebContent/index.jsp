@@ -32,7 +32,6 @@ String section = request.getParameter("section") != null ? request.getParameter(
 		%><%@include file="static/index.jsp" %><%
 	}
 	%>
-	
 	<%@ include file="static/footer.jsp" %>
 </body>
 </html>
